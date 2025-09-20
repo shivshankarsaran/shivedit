@@ -4,7 +4,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Photo Editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ShivEdit</title>
   <!-- Link to static CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <!-- FontAwesome for icons -->
@@ -42,7 +44,7 @@
       </div>
     </div>
   </nav>
-
+  <div style="height:5vw;"></div>
   <center><div class="typing" id="typing" style="color:whitesmoke"></div></center>
   <!-- edit Image Section -->
   <section class="edit" id="edit">
@@ -53,11 +55,9 @@
         <form id="edit-form" action="/edit" method="POST" enctype="multipart/form-data" class="edit-form">
 
           <!-- Drag & Drop Upload Box -->
-          <div id="drop-area"
-            style="border:2px dashed #ef4444; border-radius:12px; background:#fff5f5; padding:30px; text-align:center; cursor:pointer;">
+          <div id="drop-area" class="upload-box">
 
-            <label for="file-upload" class="custom-file-upload"
-              style="background:#ef4444; color:white; padding:10px 20px; border-radius:8px; cursor:pointer; display:inline-block; font-weight:600;">
+            <label for="file-upload" class="custom-file-upload">
               <i class="fas fa-cloud-upload-alt"></i> Choose Image
             </label>
             <input id="file-upload" type="file" name="image" accept="image/*" style="display:none;" required>

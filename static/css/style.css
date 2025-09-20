@@ -983,3 +983,268 @@ footer a {
     font-size: 26px;
   }
 }
+/* Global adjustments for mobile */
+@media (max-width: 600px) {
+
+  body {
+    padding-top: 70px; /* reduce navbar space */
+  }
+
+  /* Navbar adjustments */
+  .navbar .nav-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 80%;
+    background: rgba(211, 47, 47, 0.95);
+    padding: 20px;
+    gap: 12px;
+    border-radius: 8px;
+    z-index: 9999;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li a {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .menu-btn.mobile-toggle {
+    display: block;
+  }
+
+  /* Edit section adjustments */
+  .edit-form {
+    width: 95%;
+    padding: 15px;
+  }
+
+  #drop-area {
+    width: 100%;
+    padding: 20px;
+  }
+
+  #upload-msg {
+    font-size: 14px;
+  }
+
+  .button-area .btn,
+  #submit-btn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+  }
+
+  /* Services cards stack with smaller gaps */
+  .services .serv-content .card {
+    width: 95%;
+    margin: 10px 0;
+    padding: 30px 20px;
+  }
+
+  .services .serv-content .card i {
+    font-size: 40px;
+  }
+
+  .services .serv-content .card .text {
+    font-size: 20px;
+  }
+
+  /* Contact section */
+  .contact-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-form,
+  .contact-info {
+    min-width: 100%;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+
+  /* Footer */
+  footer img {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+  footer span {
+    font-size: 14px;
+    display: block;
+  }
+
+  /* Scroll up button smaller */
+  .scroll-up-btn {
+    height: 40px;
+    width: 38px;
+    font-size: 26px;
+  }
+}
+
+/* Upload Box Styling */
+.upload-box {
+  width: 100%;
+  max-width: 550px;
+  min-height: 200px;
+  margin: 0 auto;
+  border: 2px dashed #ef4444;
+  border-radius: 12px;
+  background: #fff5f5;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-box:hover {
+  border-color: #ff6b81;
+  background: #fff0f0;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-box p {
+  margin-top: 15px;
+  color: #ef4444;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Responsive Upload Box */
+@media (max-width: 768px) {
+  .upload-box {
+    width: 95%;
+    min-height: 220px;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-box {
+    width: 100%;
+    min-height: 250px;
+    padding: 30px 20px;
+  }
+
+  .upload-box p {
+    font-size: 0.95rem;
+  }
+}
+/* --- Make sure upload box fills mobile and is touch-friendly --- */
+.upload-box,
+#drop-area {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  min-height: 260px;            /* comfortable touch area for phones */
+  padding: 28px 20px;
+  border-radius: 12px;
+  border: 2px dashed #ef4444;
+  background: #fff5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ensure the parent edit-form doesn't shrink the box on small screens */
+.edit-form {
+  width: 100%;
+  max-width: 100%;              /* remove 550px cap on small screens */
+  padding: 24px;
+}
+
+/* Bigger tappable button & readable text */
+.custom-file-upload {
+  padding: 14px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* upload message style */
+#upload-msg {
+  margin-top: 14px;
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Small desktop / tablet adjustments */
+@media (max-width: 900px) {
+  .upload-box {
+    min-height: 280px;
+    padding: 26px;
+  }
+}
+
+/* Phone-specific (including iPhone X width ≈ 375px) */
+@media (max-width: 420px) {
+  /* remove horizontal padding of page wrapper so upload uses full device width */
+  .max-width {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .edit-form {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .upload-box {
+    min-height: 300px;          /* extra height for phones */
+    padding: 20px 14px;
+  }
+
+  .custom-file-upload {
+    padding: 16px 28px;
+    font-size: 17px;
+    width: auto;
+  }
+
+  #upload-msg {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  /* make sure preview and outputs scale nicely */
+  .output,
+  .img-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* make primary submit full-width */
+  .button-area .btn,
+  #submit-btn {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+}
