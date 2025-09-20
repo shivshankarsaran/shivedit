@@ -873,3 +873,113 @@ footer a {
   white-space: nowrap;
   overflow: hidden;
 }
+
+/* Navbar responsiveness */
+@media (max-width: 768px) {
+  .navbar .nav-inner {
+    padding: 0 15px;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 80%;
+    background: rgba(211, 47, 47, 0.95);
+    padding: 20px;
+    gap: 15px;
+    border-radius: 8px;
+    z-index: 9999;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li a {
+    font-size: 18px;
+  }
+
+  .menu-btn.mobile-toggle {
+    display: block;
+  }
+}
+
+/* Edit section responsiveness */
+@media (max-width: 600px) {
+  .edit-form {
+    width: 95%;
+    padding: 20px;
+  }
+
+  #drop-area {
+    padding: 20px;
+  }
+
+  .edit-inputs.styled-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button-area .btn,
+  #submit-btn {
+    width: 100%;
+    padding: 15px 20px;
+  }
+}
+
+/* Services section */
+@media (max-width: 900px) {
+  .services .serv-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services .serv-content .card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Contact section */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-info, .contact-form {
+    min-width: 100%;
+  }
+}
+
+/* Footer adjustments */
+@media (max-width: 500px) {
+  footer img {
+    width: 120px;
+    margin-bottom: 10px;
+  }
+
+  footer span {
+    display: block;
+    font-size: 14px;
+  }
+}
+
+/* Preview image */
+.preview-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make scroll-up button slightly smaller on mobile */
+@media (max-width: 600px) {
+  .scroll-up-btn {
+    height: 40px;
+    width: 38px;
+    font-size: 26px;
+  }
+}

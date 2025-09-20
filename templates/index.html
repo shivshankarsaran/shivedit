@@ -48,7 +48,7 @@
     
     <div class="edit-bg"></div>
     <div class="max-width">
-      <div class="edit-container glass-effect">
+      <div class="edit-container glass-effect" style="display:flex; flex-direction:column; align-items:center; gap:20px;">
         <form id="edit-form" action="/edit" method="POST" enctype="multipart/form-data" class="edit-form">
 
           <!-- Drag & Drop Upload Box -->
@@ -94,7 +94,7 @@
         <div class="output">
           <h3>Last Edited Image</h3>
           <div class="img-wrapper">
-            <img src="{{ edited_image }}" alt="Edited Image" class="preview-img">
+            <img src="{{ edited_image }}" alt="Edited Image" class="preview-img responsive-img">
           </div>
           <a href="{{ edited_image }}" download class="download-btn">
             <i class="fas fa-download"></i> Download
