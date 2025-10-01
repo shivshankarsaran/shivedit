@@ -41,6 +41,94 @@ def processImage(filename, operation):
         output_path = os.path.join(output_dir, f"{operation}_{filename}")
         cv.imwrite(output_path, imgProcessed)
         return f"/static/image/{operation}_{filename}"
+    
+    if operation== "bw":
+        img_gray= cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+        imgProcessed = cv.threshold(img_gray, 127, 255, cv.THRESH_BINARY)[1]
+        output_dir = os.path.join("static", "image")
+        output_path = os.path.join(output_dir, f"{operation}_{filename}")
+        cv.imwrite(output_path, imgProcessed)
+        return f"/static/image/{operation}_{filename}"
+    
+    if operation== "rgb":
+        try:
+            channel=request.form.get("channel")
+        except ValueError:
+            return None
+
+        B,G,R=cv.split(img)
+        if channel=="BLUE":
+            imgProcessed = B
+            output_dir = os.path.join("static", "image")
+            output_path = os.path.join(output_dir, f"{channel}_{filename}")
+            cv.imwrite(output_path, imgProcessed)
+            return f"/static/image/{channel}_{filename}"
+        elif channel=="Green":
+            imgProcessed = G
+            output_dir = os.path.join("static", "image")
+            output_path = os.path.join(output_dir, f"{channel}_{filename}")
+            cv.imwrite(output_path, imgProcessed)
+            return f"/static/image/{channel}_{filename}"
+        else:
+            imgProcessed = R
+            output_dir = os.path.join("static", "image")
+            output_path = os.path.join(output_dir, f"{channel}_{filename}")
+            cv.imwrite(output_path, imgProcessed)
+            return f"/static/image/{channel}_{filename}"
+
+    if operation=="negative":
+            img_gray= cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+            negative=1-img_gray
+            imgProcessed = negative
+            output_dir = os.path.join("static", "image")
+            output_path = os.path.join(output_dir, f"{operation}_{filename}")
+            cv.imwrite(output_path, imgProcessed)
+            return f"/static/image/{operation}_{filename}"     
+
+    if operation == "crop":
+        try:
+            height1 = int(request.form.get("height1",0))
+            height2 = int(request.form.get("height2"))
+            width1 = int(request.form.get("width1",0))
+            width2 = int(request.form.get("width2"))
+        except ValueError:
+            return None
+
+        imgProcessed = img[width1:width2,height1:height2]
+        output_dir = os.path.join("static", "image")
+        output_path = os.path.join(output_dir, f"{operation}_{filename}")
+        cv.imwrite(output_path, imgProcessed)
+        return f"/static/image/{operation}_{filename}"  
+
+    if operation=="flip":
+        try:
+            flip=request.form.get("flip")
+        except ValueError:
+            return None
+        
+        flip_horizontal = cv.flip(img, 1)
+        flip_vertical = cv.flip(img, 0)
+        flip_both = cv.flip(img, -1) 
+
+        if flip=="horizontal":
+            imgProcessed = flip_horizontal
+            output_dir = os.path.join("static", "image")
+            output_path = os.path.join(output_dir, f"{operation}_{flip}_{filename}")
+            cv.imwrite(output_path, imgProcessed)
+            return f"/static/image/{operation}_{flip}_{filename}"
+        elif flip=="vertical":
+            imgProcessed = flip_vertical
+            output_dir = os.path.join("static", "image")
+            output_path = os.path.join(output_dir, f"{operation}_{flip}_{filename}")
+            cv.imwrite(output_path, imgProcessed)
+            return f"/static/image/{operation}_{flip}_{filename}"
+        else:
+            imgProcessed = flip_both
+            output_dir = os.path.join("static", "image")
+            output_path = os.path.join(output_dir, f"{operation}_{flip}_{filename}")
+            cv.imwrite(output_path, imgProcessed)
+            return f"/static/image/{operation}_{flip}_{filename}"
+
 
     return None
 

@@ -63,7 +63,7 @@ $(function () {
     switch ($(this).val()) {
       case "resize":
         dynamicInputs.html(`
-          <label>Width (px): <input type="number" name="width" required></label>
+          <label>Width (px): <input type="number" name="width" required></label><br>
           <label>Height (px): <input type="number" name="height" required></label>
         `);
         break;
@@ -71,9 +71,42 @@ $(function () {
         dynamicInputs.html(`
         `);
         break;
-      case "rotate":
+      case "bw":
         dynamicInputs.html(`
-          <label>Angle (degrees): <input type="number" name="angle" required></label>
+        `);
+        break;
+      case "rgb":
+        dynamicInputs.html(`
+          <label>Select the channel</label><br>
+          <input type="radio" id="r" name="channel" value="RED" required>
+          <label for="r">RED</label><br>
+          <input type="radio" id="g" name="channel" value="GREEN" required>
+          <label for="g">GREEN</label><br>
+          <input type="radio" id="b" name="channel" value="BLUE" required>
+          <label for="b">BLUE</label>
+        `);
+        break;
+      case "negative":
+        dynamicInputs.html(`
+        `);
+        break;
+      case "crop":
+        dynamicInputs.html(`
+          <label>Initial Width (px): <input type="number" name="width1" required></label><br>
+          <label>Final Width (px): <input type="number" name="width2" required></label><br>
+          <label>Initial Height (px): <input type="number" name="height1" required></label><br>
+          <label>Final Height (px): <input type="number" name="height2" required></label>
+        `);
+        break;
+      case "flip":
+        dynamicInputs.html(`
+          <label>Select: </label><br>
+          <input type="radio" id="h" name="flip" value="horizontal" required>
+          <label for="h">Horizontal</label><br>
+          <input type="radio" id="v" name="flip" value="vertical" required>
+          <label for="v">Vertical</label><br>
+          <input type="radio" id="b" name="flip" value="both" required>
+          <label for="b">Both</label>
         `);
         break;
       default:
