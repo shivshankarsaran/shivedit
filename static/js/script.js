@@ -323,3 +323,14 @@ const texts = ["Shiv Shankar Saran", "Shiv Shankar Saran", "Shiv Shankar Saran"]
 
   typingDiv.textContent = texts[0].charAt(0); // show first letter immediately
   setTimeout(typeEffect, speed);
+
+
+  function onCameraClick() {
+  alert("Camera icon clicked!");
+  // add your camera capture or image upload logic here
+}
+
+function onVideoClick() {
+  alert("Video icon clicked!");
+  // add your video recording or video upload logic here
+}
